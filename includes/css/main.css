@@ -118,8 +118,149 @@ html{
 }
 
 /*********** Typography *******************/
-/*********** Nav ************************/
-/*********** Header ********************/
+h1{
+  font: 3rem/1.5 'Inconsolata',monospace;
+  text-transform: uppercase;
+}
+.nav-item{
+  font: 1.8rem/2 'Playfair Display','serif';
+  color: #626262;
+}
+/*********** Header + Nav ********************/
+header{
+  max-width: 1050px;
+  margin: 0 auto;
+}
+nav,header{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack:distribute;
+      justify-content:space-around;
+}
+nav{
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+h1{
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
+}
+.nav-item{
+  position: relative;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.nav-item:before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  background: #000;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  visibility: hidden;
+}
+.nav-item:hover:before{
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+.nav-toggle{
+  display: none;
+}
 /*********** Main **********************/
 /*********** Footer ********************/
 /*********** Media Queries *************/
+@media screen and (max-width:800px) {
+  header,nav,.nav-item{
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .nav-item:before{
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  .nav-item:hover{
+    background-color: #000;
+  }
+  nav{
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: height 0.3s,opacity 0.5s;
+    transition: height 0.3s,opacity 0.5s;
+  }
+  nav.show{
+    height: 600px;
+    max-height: 75vh;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: height 0.3s,opacity 0.5s;
+    transition: height 0.3s,opacity 0.5s;
+  }
+  h1{
+    display: inline-block;
+    width: 40%;
+  }
+  button.nav-toggle{
+    display: inline-block;
+    border: none;
+    padding: 0;
+    outline: none;
+    background:transparent;
+    cursor: pointer;
+    width:50%;
+    text-align:right;
+  }
+  .nav-icon,.nav-icon:before,.nav-icon:after{
+    width: 45px;
+    height: 5px;
+    display: inline-block;
+    background: #000;
+    -webkit-transition: height 0.2s,-webkit-transform 0.4s;
+    transition: height 0.2s,-webkit-transform 0.4s;
+    transition: transform 0.4s,height 0.2s;
+    transition: transform 0.4s,height 0.2s,-webkit-transform 0.4s;
+  }
+  .nav-icon{
+    position: relative;
+    top: -10px;
+  }
+  .nav-icon:before,.nav-icon:after{
+    content: '';
+    position: absolute;
+    left:0;
+  }
+  .nav-icon:before{
+    top: -10px;
+  }
+  .nav-icon:after{
+    bottom:-10px;
+  }
+  .open .nav-icon{
+      height: 0;
+  }
+  .open .nav-icon:before{
+    top: 0;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  .open .nav-icon:after{
+    top: 0;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  
+}
