@@ -246,7 +246,7 @@ input.comment{
 }
 
 /* featured sections */
-#featured-blogs{ margin-top: 7.2rem; }
+#featured-blogs{ margin-top: 28.8rem; }
 #featured-blogs h2{ display: none; }
 
 .featured-post .category,.featured-post h3,.featured-post p,.read-more{ margin-top: 1.6rem; }
@@ -254,11 +254,12 @@ input.comment{
   width: 100%;
   max-width: 410px;
 }
+
 /** newsletter section **/
 #newsletter{
   background:#f0f0f0;
   padding: 7rem 1.8rem;
-  margin-top: 1.8rem;
+  margin-top: 14.4rem;
 }
 #newsletter form{
   display: -webkit-box;
@@ -392,9 +393,13 @@ footer a{
   #blog-post span.category{ margin-top: 2rem; }
 }
 @media screen and (max-width: 754px){
-  html{ font-size: 70%; }
+  html{ font-size: 65%; }
   footer{ font-size: 2rem; }
 }
 @media screen and (max-width: 500px){
   html{ font-size: 50%; }
+}
+@media screen and (min-width: 755px){
+  html{ font-size: 70%; }
+  footer{ font-size: 2.5rem; }
 }
